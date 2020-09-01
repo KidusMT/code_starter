@@ -18,7 +18,6 @@ import com.pixel.app.utils.LocaleManager;
 
 import net.danlew.android.joda.JodaTimeAndroid;
 
-import java.util.HashMap;
 import java.util.Locale;
 
 import javax.inject.Inject;
@@ -28,7 +27,6 @@ import static com.pixel.app.data.prefs.AppPreferencesHelper.PREF_KEY_CURRENT_LAN
 public class MvpApp extends Application {
 
     public static Context mContext;
-    public static HashMap<String, String> qualification;
     @Inject
     DataManager mDataManager;
     private ApplicationComponent mApplicationComponent;
