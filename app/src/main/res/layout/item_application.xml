@@ -1,0 +1,71 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_assigned_tasks"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:elevation="4dp"
+    app:cardUseCompatPadding="true">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/vertical_margin_12"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <LinearLayout
+            android:layout_weight="0.8"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_application_name"
+                android:fontFamily="sans-serif"
+                android:text="@string/app_name"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_application_status"
+                android:layout_marginTop="@dimen/vertical_margin_4"
+                android:textColor="@color/colorAccent"
+                android:textAllCaps="true"
+                android:fontFamily="sans-serif-condensed-light"
+                android:text="@string/app_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_application_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2020-05-09"
+                android:layout_gravity="top"
+                android:fontFamily="sans-serif-light"
+                android:paddingRight="10dp"
+                android:textColor="@color/material_grey_700"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="0.2"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/btn_continue"
+                android:layout_margin="5dp"
+                app:srcCompat="@drawable/ic_chevron_right"
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
