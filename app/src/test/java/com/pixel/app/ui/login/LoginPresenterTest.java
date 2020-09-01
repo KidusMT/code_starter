@@ -1,8 +1,8 @@
 package com.pixel.app.ui.login;
 
 import com.pixel.app.data.DataManager;
-import com.pixel.app.data.network.model.LoginRequest;
-import com.pixel.app.data.network.model.LoginResponse;
+import com.pixel.app.data.network.model.login.LoginRequest;
+import com.pixel.app.data.network.model.login.LoginResponse;
 import com.pixel.app.utils.rx.TestSchedulerProvider;
 
 import org.junit.After;
@@ -57,8 +57,7 @@ public class LoginPresenterTest {
 
         doReturn(Observable.just(loginResponse))
                 .when(mMockDataManager)
-                .doServerLoginApiCall(new LoginRequest
-                        .ServerLoginRequest(email, password));
+                .login(new LoginRequest(email, password));
 
         mLoginPresenter.onServerLoginClick(email, password);
 
@@ -66,7 +65,7 @@ public class LoginPresenterTest {
 
         verify(mMockLoginMvpView).showLoading();
         verify(mMockLoginMvpView).hideLoading();
-        verify(mMockLoginMvpView).openMainActivity();
+        verify(mMockLoginMvpView).openMainScreen();
     }
 
 

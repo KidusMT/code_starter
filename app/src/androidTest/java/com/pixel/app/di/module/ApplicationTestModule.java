@@ -3,12 +3,11 @@ package com.pixel.app.di.module;
 import android.app.Application;
 import android.content.Context;
 
-import com.pixel.app.BuildConfig;
-import com.pixel.app.R;
 import com.pixel.app.data.AppDataManager;
 import com.pixel.app.data.DataManager;
 import com.pixel.app.data.db.AppDbHelper;
 import com.pixel.app.data.db.DbHelper;
+import com.pixel.app.data.network.ApiHeader;
 import com.pixel.app.data.network.ApiHelper;
 import com.pixel.app.data.network.AppApiHelper;
 import com.pixel.app.data.prefs.AppPreferencesHelper;
@@ -23,7 +22,6 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 @Module
 public class ApplicationTestModule {
@@ -54,7 +52,7 @@ public class ApplicationTestModule {
     @Provides
     @ApiInfo
     String provideApiKey() {
-        return BuildConfig.API_KEY;
+        return null;
     }
 
     @Provides
@@ -89,22 +87,18 @@ public class ApplicationTestModule {
         return appApiHelper;
     }
 
-//    @Provides
-//    @Singleton
-//    ApiHeader.ProtectedApiHeader provideProtectedApiHeader(@ApiInfo String apiKey,
-//                                                           PreferencesHelper preferencesHelper) {
-//        return new ApiHeader.ProtectedApiHeader(
-//                apiKey,
-//                preferencesHelper.getCurrentUserId(),
-//                preferencesHelper.getAccessToken());
-//    }
-
     @Provides
     @Singleton
-    CalligraphyConfig provideCalligraphyDefaultConfig() {
-        return new CalligraphyConfig.Builder()
-                .setDefaultFontPath("seed/source-sans-pro/SourceSansPro-Regular.ttf")
-                .setFontAttrId(R.attr.fontPath)
-                .build();
+    ApiHeader provideApiHeader(PreferencesHelper preferencesHelper) {
+        return new ApiHeader(preferencesHelper.getAccessToken());
     }
+
+//    @Provides
+//    @Singleton
+//    CalligraphyConfig provideCalligraphyDefaultConfig() {
+//        return new CalligraphyConfig.Builder()
+//                .setDefaultFontPath("seed/source-sans-pro/SourceSansPro-Regular.ttf")
+//                .setFontAttrId(R.attr.fontPath)
+//                .build();
+//    }
 }
