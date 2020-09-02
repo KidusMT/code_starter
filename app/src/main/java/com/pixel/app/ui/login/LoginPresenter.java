@@ -2,10 +2,8 @@ package com.pixel.app.ui.login;
 
 import com.pixel.app.R;
 import com.pixel.app.data.DataManager;
-import com.pixel.app.data.network.model.login.LoginRequest;
 import com.pixel.app.ui.base.BasePresenter;
 import com.pixel.app.utils.CommonUtils;
-import com.pixel.app.utils.ErrorUtils;
 import com.pixel.app.utils.rx.SchedulerProvider;
 
 import javax.inject.Inject;
@@ -55,55 +53,55 @@ public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V>
         //
         getMvpView().showLoading();
 
-        getCompositeDisposable().add(getDataManager()
-                .login(new LoginRequest(email, password))
-                .subscribeOn(getSchedulerProvider().io())
-                .observeOn(getSchedulerProvider().ui())
-                .subscribe(response -> {
-
-                    if (!isViewAttached()) {
-                        return;
-                    }
-
-                    getMvpView().hideLoading();
-                    if (response.getSuccess()) {
-//                        String decoded = AppUtils.decodeToken(response.getJwt());
-//                        JSONObject decObj = new JSONObject(decoded);
-//                        Long applicantId = decObj.getLong("id");
-//                        String applicantName = decObj.getString("first_name") + " " +
-//                                decObj.getString("last_name");
-//                        String applicantFullName =
-//                                decObj.getString("first_name") + " " +
-//                                        (decObj.has("middle_name") ? decObj.getString("middle_name") + " " : "") +
-//                                        decObj.getString("last_name");
+//        getCompositeDisposable().add(getDataManager()
+//                .login(new LoginRequest(email, password))
+//                .subscribeOn(getSchedulerProvider().io())
+//                .observeOn(getSchedulerProvider().ui())
+//                .subscribe(response -> {
 //
-//                        getDataManager().setApplicantFullName(applicantFullName);
+//                    if (!isViewAttached()) {
+//                        return;
+//                    }
 //
-//                        String applicantEmail = decObj.getString("email");
+        getMvpView().hideLoading();
+//                    if (response.getSuccess()) {
+////                        String decoded = AppUtils.decodeToken(response.getJwt());
+////                        JSONObject decObj = new JSONObject(decoded);
+////                        Long applicantId = decObj.getLong("id");
+////                        String applicantName = decObj.getString("first_name") + " " +
+////                                decObj.getString("last_name");
+////                        String applicantFullName =
+////                                decObj.getString("first_name") + " " +
+////                                        (decObj.has("middle_name") ? decObj.getString("middle_name") + " " : "") +
+////                                        decObj.getString("last_name");
+////
+////                        getDataManager().setApplicantFullName(applicantFullName);
+////
+////                        String applicantEmail = decObj.getString("email");
+////
+////                        getDataManager().updateUserInfo(
+////                                response.getJwt(),
+////                                applicantId,
+////                                DataManager.LoggedInMode.LOGGED_IN_MODE_SERVER,
+////                                applicantName,
+////                                applicantEmail
+////                        );
 //
-//                        getDataManager().updateUserInfo(
-//                                response.getJwt(),
-//                                applicantId,
-//                                DataManager.LoggedInMode.LOGGED_IN_MODE_SERVER,
-//                                applicantName,
-//                                applicantEmail
-//                        );
-
-                        getMvpView().openMainScreen();
-//                    } else if (response.getErrors().get(0).equalsIgnoreCase("Invalid username or password !")){
-                    } else if (response.getErrors() != null && response.getErrors().size() > 0) {
-                        // if single line then should display only the first but if multiple
-                        // then it should display multiple line snackbar with custom snack bar
-                        getMvpView().onError(response.getErrors().get(0));
-                    }
-                }, throwable -> {
-                    if (!isViewAttached()) {
-                        return;
-                    }
-                    // handle the login error here
-                    getMvpView().hideLoading();
-                    ErrorUtils.handleApiError(throwable, getMvpView());
-                }));
+        getMvpView().openMainScreen();
+////                    } else if (response.getErrors().get(0).equalsIgnoreCase("Invalid username or password !")){
+//                    } else if (response.getErrors() != null && response.getErrors().size() > 0) {
+//                        // if single line then should display only the first but if multiple
+//                        // then it should display multiple line snackbar with custom snack bar
+//                        getMvpView().onError(response.getErrors().get(0));
+//                    }
+//                }, throwable -> {
+//                    if (!isViewAttached()) {
+//                        return;
+//                    }
+//                    // handle the login error here
+//                    getMvpView().hideLoading();
+//                    ErrorUtils.handleApiError(throwable, getMvpView());
+//                }));
     }
 
     @Override

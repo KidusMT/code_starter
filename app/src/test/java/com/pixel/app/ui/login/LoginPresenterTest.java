@@ -1,8 +1,6 @@
 package com.pixel.app.ui.login;
 
 import com.pixel.app.data.DataManager;
-import com.pixel.app.data.network.model.login.LoginRequest;
-import com.pixel.app.data.network.model.login.LoginResponse;
 import com.pixel.app.utils.rx.TestSchedulerProvider;
 
 import org.junit.After;
@@ -13,11 +11,9 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import io.reactivex.Observable;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.TestScheduler;
 
-import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -37,6 +33,12 @@ public class LoginPresenterTest {
 
     @Before
     public void setUp() throws Exception {
+
+    }
+
+    @Test
+    public void testServerLoginSuccess() {
+
         CompositeDisposable compositeDisposable = new CompositeDisposable();
         mTestScheduler = new TestScheduler();
         TestSchedulerProvider testSchedulerProvider = new TestSchedulerProvider(mTestScheduler);
@@ -45,20 +47,16 @@ public class LoginPresenterTest {
                 testSchedulerProvider,
                 compositeDisposable);
         mLoginPresenter.onAttach(mMockLoginMvpView);
-    }
-
-    @Test
-    public void testServerLoginSuccess() {
 
         String email = "dummy@gmail.com";
         String password = "password";
 
-        LoginResponse loginResponse = new LoginResponse();
+//        LoginResponse loginResponse = new LoginResponse();
 
-        doReturn(Observable.just(loginResponse))
-                .when(mMockDataManager)
-                .login(new LoginRequest(email, password));
-
+//        doReturn(Observable.just(loginResponse))
+//                .when(mMockDataManager)
+//                .login(new LoginRequest(email, password));
+//
         mLoginPresenter.onServerLoginClick(email, password);
 
         mTestScheduler.triggerActions();
