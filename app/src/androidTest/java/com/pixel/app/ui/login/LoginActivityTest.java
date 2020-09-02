@@ -69,11 +69,11 @@ public class LoginActivityTest {
 
         LoginActivity activity = rule.getActivity();
 
-        View viewById = activity.findViewById(R.id.et_username);
+        View viewById = activity.findViewById(R.id.btn_forgot_your_password);
 
         assertThat(viewById, notNullValue());
         assertThat(viewById, instanceOf(TextView.class));
         TextView textView = (TextView) viewById;
-        assertThat(textView.getText().toString(), is("Hello"));
+        assertThat(textView.getText().toString(), is("Forgot your password?"));
     }
 }
