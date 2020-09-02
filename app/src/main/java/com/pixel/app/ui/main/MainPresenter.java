@@ -63,11 +63,6 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V> imple
     }
 
     @Override
-    public void onSettingsClicked() {
-        getMvpView().openSettings();
-    }
-
-    @Override
     public void onLogoutClicked() {
         getDataManager().setUserAsLoggedOut();
         getMvpView().openLoginScreen();

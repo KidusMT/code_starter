@@ -10,8 +10,6 @@ public interface MainMvpPresenter<V extends MainMvpView> extends MvpPresenter<V>
 
     void loadApplications();
 
-    void onSettingsClicked();
-
     void onLogoutClicked();
 
 }

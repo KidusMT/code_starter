@@ -3,6 +3,7 @@ package com.pixel.app;
 import android.content.Context;
 
 import com.pixel.app.data.DataManager;
+import com.pixel.app.di.component.DaggerTestComponent;
 import com.pixel.app.di.component.TestComponent;
 import com.pixel.app.di.module.ApplicationTestModule;
 

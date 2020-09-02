@@ -37,7 +37,6 @@ ext {
 
     // App dependencies
     gsonVersion = '2.8.0'
-    calligraphyVersion = '2.2.0'
     glideVersion = '3.7.0'
 
     dagger2Version = '2.23.2'

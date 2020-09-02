@@ -14,12 +14,6 @@ import com.pixel.app.ui.main.MainMvpPresenter;
 import com.pixel.app.ui.main.MainMvpView;
 import com.pixel.app.ui.main.MainPresenter;
 import com.pixel.app.ui.main.MenuAdapter;
-import com.pixel.app.ui.settings.SettingsMvpPresenter;
-import com.pixel.app.ui.settings.SettingsMvpView;
-import com.pixel.app.ui.settings.SettingsPresenter;
-import com.pixel.app.ui.settings.dialog.BaseUrlMvpPresenter;
-import com.pixel.app.ui.settings.dialog.BaseUrlMvpView;
-import com.pixel.app.ui.settings.dialog.BaseUrlPresenter;
 import com.pixel.app.utils.rx.AppSchedulerProvider;
 import com.pixel.app.utils.rx.SchedulerProvider;
 
@@ -63,20 +57,6 @@ public class ActivityModule {
     @PerActivity
     LoginMvpPresenter<LoginMvpView> provideLoginPresenter(
             LoginPresenter<LoginMvpView> presenter) {
-        return presenter;
-    }
-
-    @Provides
-    @PerActivity
-    BaseUrlMvpPresenter<BaseUrlMvpView> provideBaseUrlPresenter(
-            BaseUrlPresenter<BaseUrlMvpView> presenter) {
-        return presenter;
-    }
-
-    @Provides
-    @PerActivity
-    SettingsMvpPresenter<SettingsMvpView> provideSettingsPresenter(
-            SettingsPresenter<SettingsMvpView> presenter) {
         return presenter;
     }
 

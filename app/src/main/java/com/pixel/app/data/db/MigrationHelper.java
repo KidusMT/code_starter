@@ -70,6 +70,7 @@ public class MigrationHelper extends DaoMaster.OpenHelper {
     /**
      * dao class already define the sql exec method, so just invoke it
      */
+    @SafeVarargs
     private static void reflectMethod(StandardDatabase db, String methodName, boolean isExists, @NonNull Class<? extends AbstractDao<?, ?>>... daoClasses) {
         if (daoClasses.length < 1) {
             return;

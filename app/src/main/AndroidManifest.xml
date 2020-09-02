@@ -50,10 +50,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name="com.pixel.app.ui.settings.SettingsActivity"
-            android:launchMode="singleTop" />
-
     </application>
 
 </manifest>

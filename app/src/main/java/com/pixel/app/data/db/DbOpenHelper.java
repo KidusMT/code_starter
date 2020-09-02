@@ -1,13 +1,16 @@
 package com.pixel.app.data.db;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 
 import com.pixel.app.data.db.model.DaoMaster;
+import com.pixel.app.data.db.model.UserDao;
 import com.pixel.app.di.ApplicationContext;
 import com.pixel.app.di.DatabaseInfo;
 import com.pixel.app.utils.AppLogger;
 
 import org.greenrobot.greendao.database.Database;
+import org.greenrobot.greendao.database.StandardDatabase;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -28,7 +31,7 @@ public class DbOpenHelper extends DaoMaster.OpenHelper {
 //                db.execSQL("ALTER TABLE " + CheckInDao.TABLENAME + " ADD COLUMN "
 //                 + CheckInDao.Properties.BeforeMorningOT + " INTEGER DEFAULT 'DEFAULT_VAL'");
 //        }
-//        MigrationHelper.migrate(new StandardDatabase((SQLiteDatabase) db.getRawDatabase()),
-//                CrewIDImageDao.class);
+        MigrationHelper.migrate(new StandardDatabase((SQLiteDatabase) db.getRawDatabase()),
+                UserDao.class);
     }
 }

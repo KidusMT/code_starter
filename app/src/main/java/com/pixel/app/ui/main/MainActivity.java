@@ -22,7 +22,6 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.pixel.app.R;
 import com.pixel.app.ui.base.BaseActivity;
 import com.pixel.app.ui.login.LoginActivity;
-import com.pixel.app.ui.settings.SettingsActivity;
 import com.pixel.app.utils.NetworkUtils;
 
 import javax.inject.Inject;
@@ -147,36 +146,6 @@ public class MainActivity extends BaseActivity implements MainMvpView, MenuAdapt
         finish();
     }
 
-//    @Override
-//    public void showApplicationForms(ApplicationFilterResponse applicationForms) {
-////        applicationForms.getDatum().get(0).
-//        this.applicationForms = applicationForms;
-//        if (applicationForms != null && applicationForms.getDatum() != null && applicationForms.getDatum().size() > 0) {
-//            if (noContentContainer != null && noContentContainer.getVisibility() == View.VISIBLE) {
-//                noContentContainer.setVisibility(View.GONE);
-////                btnNewApplication.setVisibility(View.GONE);
-//            }
-//            if (mRecyclerView != null && mRecyclerView.getVisibility() == View.GONE)
-//                mRecyclerView.setVisibility(View.VISIBLE);
-//            mAdapter.addItems(applicationForms.getDatum());
-//        } else {
-//            if (noContentContainer != null && noContentContainer.getVisibility() == View.GONE) {
-//                noContentContainer.setVisibility(View.VISIBLE);
-////                noContentContainer.setVisibility(View.VISIBLE);
-////                mNoAssignedTask.setText("No crew member record found. \nPlease, Register a crew with the add button below.");
-//            }
-//            if (mRecyclerView != null && mRecyclerView.getVisibility() == View.VISIBLE)
-//                mRecyclerView.setVisibility(View.GONE);
-//        }
-//        hideLoading();
-//    }
-
-
-    @Override
-    public void openSettings() {
-        startActivity(SettingsActivity.getStartIntent(this));
-    }
-
     @Override
     protected void setUp() {
         setSupportActionBar(mToolbar);
@@ -225,7 +194,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, MenuAdapt
 
         if (item.getItemId() == R.id.menu_settings) {
             if (NetworkUtils.isNetworkConnected(this)) {
-                openSettings();
+                showMessage("settings clicked");
             } else {
                 showMessage("No internet connection. Please try again.");
             }
