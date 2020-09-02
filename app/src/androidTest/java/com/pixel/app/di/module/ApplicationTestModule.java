@@ -3,6 +3,7 @@ package com.pixel.app.di.module;
 import android.app.Application;
 import android.content.Context;
 
+import com.pixel.app.BuildConfig;
 import com.pixel.app.data.AppDataManager;
 import com.pixel.app.data.DataManager;
 import com.pixel.app.data.db.AppDbHelper;
@@ -52,7 +53,7 @@ public class ApplicationTestModule {
     @Provides
     @ApiInfo
     String provideApiKey() {
-        return null;
+        return BuildConfig.API_KEY;
     }
 
     @Provides
@@ -93,12 +94,4 @@ public class ApplicationTestModule {
         return new ApiHeader(preferencesHelper.getAccessToken());
     }
 
-//    @Provides
-//    @Singleton
-//    CalligraphyConfig provideCalligraphyDefaultConfig() {
-//        return new CalligraphyConfig.Builder()
-//                .setDefaultFontPath("seed/source-sans-pro/SourceSansPro-Regular.ttf")
-//                .setFontAttrId(R.attr.fontPath)
-//                .build();
-//    }
 }

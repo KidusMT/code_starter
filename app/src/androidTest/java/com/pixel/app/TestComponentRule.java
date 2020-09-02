@@ -3,9 +3,7 @@ package com.pixel.app;
 import android.content.Context;
 
 import com.pixel.app.data.DataManager;
-import com.pixel.app.di.component.DaggerTestComponent;
 import com.pixel.app.di.component.TestComponent;
-import com.pixel.app.di.module.ApplicationTestModule;
 
 import org.junit.rules.TestRule;
 import org.junit.runner.Description;
@@ -29,11 +27,11 @@ public class TestComponentRule implements TestRule {
     }
 
     private void setupDaggerTestComponentInApplication() {
-        MvpApp application = ((MvpApp) mContext.getApplicationContext());
-        mTestComponent = DaggerTestComponent.builder()
-                .applicationTestModule(new ApplicationTestModule(application))
-                .build();
-        application.setComponent(mTestComponent);
+//        MvpApp application = ((MvpApp) mContext.getApplicationContext());
+//        mTestComponent = DaggerTestComponent.builder()
+//                .applicationTestModule(new ApplicationTestModule(application))
+//                .build();
+//        application.setComponent(mTestComponent);
     }
 
     @Override
