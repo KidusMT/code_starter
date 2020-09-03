@@ -6,6 +6,9 @@ import android.content.res.Configuration;
 
 import androidx.multidex.MultiDex;
 
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
 import com.pixel.app.di.component.ApplicationComponent;
 import com.pixel.app.di.component.DaggerApplicationComponent;
 import com.pixel.app.di.module.ApplicationModule;
@@ -42,6 +45,9 @@ public class MvpApp extends Application {
         JodaTimeAndroid.init(this);
 
         MultiDex.install(mContext);
+
+        AppCenter.start(this, "82627528-7170-4fbf-961b-d3d00ba04a54",
+                Analytics.class, Crashes.class);
 
     }
 
