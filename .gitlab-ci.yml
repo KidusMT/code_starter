@@ -3,7 +3,7 @@ image: openjdk:8-jdk
 stages:
   - build
   - test
-  # - package
+  - package
 
 variables:
   ANDROID_COMPILE_SDK: "28"
@@ -96,15 +96,15 @@ package_develop:
     paths:
       - deliverables
 
-package_release:
-  <<: *package_template_def
-  stage: package
-  environment: Release
-  only:
-    - master
-  script:
-    - mv app/build/outputs/apk/app-release.apk ./deliverables/NameOfTheApp-v$VERSION_NAME-$VERSION_CODE-release.apk
-  artifacts:
-    expire_in: 4 weeks
-    paths:
-      - deliverables
+# package_release:
+#   <<: *package_template_def
+#   stage: package
+#   environment: Release
+#   only:
+#     - master
+#   script:
+#     - mv app/build/outputs/apk/app-release.apk ./deliverables/NameOfTheApp-v$VERSION_NAME-$VERSION_CODE-release.apk
+#   artifacts:
+#     expire_in: 4 weeks
+#     paths:
+#       - deliverables
