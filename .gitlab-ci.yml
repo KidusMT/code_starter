@@ -3,7 +3,7 @@ image: openjdk:8-jdk
 stages:
   - build
   - test
-  - package
+  # - package
 
 variables:
   ANDROID_COMPILE_SDK: "28"
