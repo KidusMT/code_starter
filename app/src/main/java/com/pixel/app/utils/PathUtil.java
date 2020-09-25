@@ -1,6 +1,5 @@
 package com.pixel.app.utils;
 
-import android.annotation.SuppressLint;
 import android.content.ContentUris;
 import android.content.Context;
 import android.database.Cursor;
@@ -12,12 +11,13 @@ import android.provider.MediaStore;
 
 import java.io.File;
 import java.net.URISyntaxException;
+import java.util.Objects;
 
+@SuppressWarnings({"unused", "RedundantSuppression", "RedundantThrows", "NewApi"})
 public class PathUtil {
     /*
      * Gets the file path of the given Uri.
      */
-    @SuppressLint("NewApi")
     public static String getPath(Context context, Uri uri) throws URISyntaxException {
         final boolean needToCheckUri = Build.VERSION.SDK_INT >= 19;
         String selection = null;
@@ -34,14 +34,14 @@ public class PathUtil {
                 if (new File(path).exists()) {
                     return path;
                 } else {
-                    String sdCardName = uri.getPath().split(":")[0].substring(uri.getPath().split(":")[0].lastIndexOf("/"));
+                    String sdCardName = Objects.requireNonNull(uri.getPath()).split(":")[0].substring(uri.getPath().split(":")[0].lastIndexOf("/"));
                     return "/storage" + sdCardName + "/" + split[1];
                 }
 
             } else if (isDownloadsDocument(uri)) {
                 final String id = DocumentsContract.getDocumentId(uri);
                 uri = ContentUris.withAppendedId(
-                        Uri.parse("content://downloads/public_downloads"), Long.valueOf(id));
+                        Uri.parse("content://downloads/public_downloads"), Long.parseLong(id));
             } else if (isMediaDocument(uri)) {
                 final String docId = DocumentsContract.getDocumentId(uri);
                 final String[] split = docId.split(":");
@@ -59,14 +59,15 @@ public class PathUtil {
         }
         if ("content".equalsIgnoreCase(uri.getScheme())) {
             String[] projection = {MediaStore.Images.Media.DATA};
-            Cursor cursor = null;
+            Cursor cursor;
             try {
                 cursor = context.getContentResolver().query(uri, projection, selection, selectionArgs, null);
-                int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+                int column_index = Objects.requireNonNull(cursor).getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
                 if (cursor.moveToFirst()) {
                     return cursor.getString(column_index);
                 }
             } catch (Exception e) {
+                e.printStackTrace();
             }
         } else if ("file".equalsIgnoreCase(uri.getScheme())) {
             return uri.getPath();
@@ -80,6 +81,7 @@ public class PathUtil {
      * @return Whether the Uri authority is ExternalStorageProvider.
      */
     public static boolean isExternalStorageDocument(Uri uri) {
+        //noinspection SpellCheckingInspection
         return "com.android.externalstorage.documents".equals(uri.getAuthority());
     }
 

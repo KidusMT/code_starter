@@ -8,5 +8,6 @@ public interface LoginMvpView extends MvpView {
 
     void openForgotPasswordScreen();
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     void openSignUpScreen();
 }

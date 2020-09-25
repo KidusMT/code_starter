@@ -12,6 +12,7 @@ import com.pixel.app.utils.network.NoInternetFragment;
 
 import dagger.Component;
 
+@SuppressWarnings({"unused", "RedundantSuppression"})
 @PerActivity
 @Component(dependencies = ApplicationComponent.class, modules = ActivityModule.class)
 public interface ActivityComponent {

@@ -36,7 +36,7 @@
                         android:layout_marginStart="@dimen/vertical_margin_4"
                         android:layout_marginEnd="@dimen/vertical_margin_4"
                         android:fontFamily="sans-serif-medium"
-                        android:text="Base URL"
+                        android:text="@string/dialog_base_url_title"
                         android:textSize="18sp" />
                 </LinearLayout>
 
@@ -53,11 +53,12 @@
                         android:background="@drawable/input_bg_curved_grey_light"
                         android:cursorVisible="true"
                         android:gravity="center|start|bottom"
-                        android:hint="Enter base URL"
+                        android:hint="@string/dialog_base_url_hint_enter_base_url"
                         android:inputType="textUri"
                         android:maxLength="40"
                         android:padding="@dimen/vertical_margin_8"
-                        android:textColor="@color/black_effective" />
+                        android:textColor="@color/black_effective"
+                        android:autofillHints="@string/dialog_base_url_auto_hint_url" />
 
                 </RelativeLayout>
 
@@ -78,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/vertical_margin_4"
                     android:fontFamily="sans-serif-medium"
-                    android:text="cancel"
+                    android:text="@string/dialog_base_url_btn_cancel"
                     android:textAllCaps="true"
                     android:textColor="@color/colorPrimary"
                     android:textSize="18sp" />
@@ -90,7 +91,7 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/vertical_margin_12"
                     android:fontFamily="sans-serif-medium"
-                    android:text="save"
+                    android:text="@string/dialog_base_url_btn_save"
                     android:textAllCaps="true"
                     android:textColor="@color/colorPrimary"
                     android:textSize="18sp" />

@@ -7,6 +7,7 @@ import com.pixel.app.data.prefs.PreferencesHelper;
 import io.reactivex.Observable;
 
 
+@SuppressWarnings({"unused", "RedundantSuppression", "EmptyMethod"})
 public interface DataManager extends DbHelper, PreferencesHelper, ApiHelper {
 
     void updateApiHeader(
@@ -15,8 +16,10 @@ public interface DataManager extends DbHelper, PreferencesHelper, ApiHelper {
 
     void setUserAsLoggedOut();
 
+    @SuppressWarnings("SameReturnValue")
     Observable<Boolean> seedDatabaseQuestions();
 
+    @SuppressWarnings("SameReturnValue")
     Observable<Boolean> seedDatabaseOptions();
 
     void updateUserInfo(

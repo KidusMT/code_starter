@@ -12,5 +12,6 @@ public interface SettingsMvpPresenter<V extends SettingsMvpView> extends MvpPres
 
     void getAuthPrivilege();
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     void setAuthPrivilege(boolean isAuthorized);
 }

@@ -6,11 +6,12 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
 
-    private int spanCount;
-    private int spacing;
-    private boolean includeEdge;
+    private final int spanCount;
+    private final int spacing;
+    private final boolean includeEdge;
 
     public GridSpacingItemDecoration(int spanCount, int spacing, boolean includeEdge) {
         this.spanCount = spanCount;
@@ -19,7 +20,7 @@ public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     @Override
-    public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, RecyclerView.State state) {
+    public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
         int position = parent.getChildAdapterPosition(view); // item position
         int column = position % spanCount; // item column
 

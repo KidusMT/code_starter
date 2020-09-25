@@ -10,6 +10,7 @@ import java.io.File;
 
 import static java.lang.String.format;
 
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class ShareUtils {
 
     public static void shareFile(String filePath, Context context, String projectName, String from,
@@ -21,7 +22,7 @@ public class ShareUtils {
             intentShareFile.setType("application/xlsx");
 
             File file = new File(filePath);
-            Uri bmpUri = FileProvider.getUriForFile(context, "com.pixel.BCMS.fileprovider", file);
+            Uri bmpUri = FileProvider.getUriForFile(context, "com.pixel.app.file_provider", file);
 
             intentShareFile.putExtra(Intent.EXTRA_STREAM, bmpUri);
 

@@ -18,10 +18,11 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+@SuppressWarnings({"unused", "RedundantSuppression", "FieldCanBeLocal"})
 public class MenuAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     //    private List<Data> options;
-    private Context context;
+    private final Context context;
     private Callback mCallback;
 
     public MenuAdapter(Context context, ArrayList<String> options) {
@@ -58,10 +59,11 @@ public class MenuAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     }
 
     public interface Callback {
+        @SuppressWarnings("EmptyMethod")
         void onItemClicked(/*Data application*/);
     }
 
-    public class AssignedTasksViewHolder extends BaseViewHolder {
+    public static class AssignedTasksViewHolder extends BaseViewHolder {
 
         @BindView(R.id.tv_application_name)
         TextView applicationName;

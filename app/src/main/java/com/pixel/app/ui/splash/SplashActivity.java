@@ -25,6 +25,7 @@ public class SplashActivity extends BaseActivity {
         setUnBinder(ButterKnife.bind(this));
     }
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     @Override
     protected void setUp() {
 

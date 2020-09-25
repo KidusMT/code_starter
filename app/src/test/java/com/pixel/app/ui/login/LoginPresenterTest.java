@@ -1,8 +1,8 @@
 package com.pixel.app.ui.login;
 
 import com.pixel.app.data.DataManager;
-import com.pixel.app.data.network.model.LoginRequest;
-import com.pixel.app.data.network.model.LoginResponse;
+import com.pixel.app.data.network.model.login.LoginRequest;
+import com.pixel.app.data.network.model.login.LoginResponse;
 import com.pixel.app.utils.rx.TestSchedulerProvider;
 
 import org.junit.After;
@@ -31,10 +31,12 @@ public class LoginPresenterTest {
     private LoginPresenter<LoginMvpView> mLoginPresenter;
     private TestScheduler mTestScheduler;
 
+    @SuppressWarnings({"EmptyMethod", "RedundantThrows"})
     @BeforeClass
     public static void onlyOnce() throws Exception {
     }
 
+    @SuppressWarnings({"EmptyMethod", "RedundantThrows"})
     @Before
     public void setUp() throws Exception {
         CompositeDisposable compositeDisposable = new CompositeDisposable();
@@ -69,7 +71,7 @@ public class LoginPresenterTest {
         verify(mMockLoginMvpView).openMainActivity();
     }
 
-
+    @SuppressWarnings({"EmptyMethod", "RedundantThrows"})
     @After
     public void tearDown() throws Exception {
         mLoginPresenter.onDetach();

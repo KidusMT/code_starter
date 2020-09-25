@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.StringRes;
 
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public abstract class BaseSubView extends ViewGroup implements SubMvpView {
 
     private MvpView mParentMvpView;

@@ -1,5 +1,6 @@
 package com.pixel.app.ui.custom;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
@@ -34,6 +35,7 @@ public class RoundedImageView extends AppCompatImageView {
         super(context, attrs, defStyleAttr);
     }
 
+    @SuppressLint("DrawAllocation")
     @Override
     protected void onDraw(Canvas canvas) {
 
@@ -97,6 +99,7 @@ public class RoundedImageView extends AppCompatImageView {
         paint.setDither(true);
         canvas.drawARGB(0, 0, 0, 0);
         paint.setColor(Color.parseColor("#BAB399"));
+        //noinspection IntegerDivisionInFloatingPointContext
         canvas.drawCircle(finalBitmap.getWidth() / 2,
                 finalBitmap.getHeight() / 2,
                 finalBitmap.getWidth() / 2, paint);

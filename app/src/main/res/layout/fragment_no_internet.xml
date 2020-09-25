@@ -1,39 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="@dimen/activity_vertical_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginEnd="@dimen/activity_vertical_margin"
+        android:src="@drawable/ic_no_internet_connection"
+        android:contentDescription="@string/fragment_no_internet_content_description_no_internet" />
+
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:text="@string/fragment_no_internet_message"
+        android:textAlignment="center" />
 
-        <ImageView
-            android:id="@+id/image"
-            android:src="@drawable/ic_no_internet_connection"
-            android:layout_width="250dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_marginStart="@dimen/activity_vertical_margin"
-            android:layout_marginEnd="@dimen/activity_vertical_margin" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Slow or no internet connection. \nPlease try again."
-            android:textAlignment="center" />
-
-        <Button
-            android:id="@+id/btn_retry"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/vertical_margin_12"
-            android:background="@drawable/btn_bg_curved_stroke"
-            android:text="@string/retry"
-            android:textAllCaps="true"
-            android:textColor="@color/white" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/btn_retry"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/vertical_margin_12"
+        android:background="@drawable/btn_bg_curved_stroke"
+        android:text="@string/retry"
+        android:textAllCaps="true"
+        android:textColor="@color/white" />
 
 </LinearLayout>

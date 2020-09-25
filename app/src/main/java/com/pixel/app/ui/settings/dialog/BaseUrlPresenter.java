@@ -11,6 +11,7 @@ import io.reactivex.disposables.CompositeDisposable;
 public class BaseUrlPresenter<V extends BaseUrlMvpView> extends BasePresenter<V>
         implements BaseUrlMvpPresenter<V> {
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     public static final String TAG = BaseUrlPresenter.class.getSimpleName();
 
     @Inject

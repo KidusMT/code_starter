@@ -37,6 +37,7 @@ import java.util.Locale;
 import butterknife.Unbinder;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public abstract class BaseActivity extends AppCompatActivity
         implements MvpView, BaseFragment.Callback {
 
@@ -87,7 +88,7 @@ public abstract class BaseActivity extends AppCompatActivity
         return context.createConfigurationContext(configuration);
     }
 
-    @SuppressWarnings("deprecation")
+    @SuppressWarnings({"unused", "RedundantSuppression", "deprecation"})
     private Context updateResourcesLocaleLegacy(Context context, Locale locale) {
         Resources resources = context.getResources();
         Configuration configuration = resources.getConfiguration();

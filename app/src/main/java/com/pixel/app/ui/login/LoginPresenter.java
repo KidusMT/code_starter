@@ -15,6 +15,7 @@ import io.reactivex.disposables.CompositeDisposable;
 public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V>
         implements LoginMvpPresenter<V> {
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     private static final String TAG = LoginPresenter.class.getSimpleName();
 
     @Inject
@@ -61,7 +62,7 @@ public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V>
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(response -> {
 
-                    if (!isViewAttached()) {
+                    if (isViewAttached()) {
                         return;
                     }
 
@@ -93,11 +94,11 @@ public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V>
 //                    } else if (response.getErrors().get(0).equalsIgnoreCase("Invalid username or password !")){
                     } else if (response.getErrors() != null && response.getErrors().size() > 0) {
                         // if single line then should display only the first but if multiple
-                        // then it should display multiple line snackbar with custom snack bar
+                        // then it should display multiple line snackBar with custom snack bar
                         getMvpView().onError(response.getErrors().get(0));
                     }
                 }, throwable -> {
-                    if (!isViewAttached()) {
+                    if (isViewAttached()) {
                         return;
                     }
                     // handle the login error here

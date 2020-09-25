@@ -2,7 +2,7 @@ package com.pixel.app.utils;
 
 import com.google.gson.JsonSyntaxException;
 import com.jakewharton.retrofit2.adapter.rxjava2.HttpException;
-import com.pixel.BCMS.data.network.model.WrapperError;
+import com.pixel.app.data.network.model.WrapperError;
 import com.pixel.app.ui.base.MvpView;
 
 import org.json.JSONException;

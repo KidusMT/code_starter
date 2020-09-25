@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:width="108dp"
     android:height="108dp"
     android:viewportWidth="99.082565"
-    android:viewportHeight="99.082565">
+    android:viewportHeight="99.082565"
+    tools:keep="@drawable/ic_launcher_background">
     <group
         android:translateX="-4.4587154"
         android:translateY="-4.4587154">

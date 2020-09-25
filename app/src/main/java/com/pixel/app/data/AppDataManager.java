@@ -17,6 +17,7 @@ import javax.inject.Singleton;
 import io.reactivex.Observable;
 import retrofit2.Retrofit;
 
+@SuppressWarnings({"unused", "RedundantSuppression", "FieldCanBeLocal"})
 @Singleton
 public class AppDataManager implements DataManager {
 

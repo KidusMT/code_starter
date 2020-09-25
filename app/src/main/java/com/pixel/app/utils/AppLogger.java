@@ -4,6 +4,7 @@ import com.pixel.app.BuildConfig;
 
 import timber.log.Timber;
 
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class AppLogger {
 
     public static void init() {

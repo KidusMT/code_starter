@@ -20,15 +20,18 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.pixel.app.di.component.ActivityComponent;
 
+import java.util.Objects;
+
 import butterknife.Unbinder;
 
+@SuppressWarnings({"unused", "RedundantSuppression", "EmptyMethod"})
 public abstract class BaseDialog extends DialogFragment implements DialogMvpView {
 
     private BaseActivity mActivity;
     private Unbinder mUnBinder;
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         if (context instanceof BaseActivity) {
             BaseActivity mActivity = (BaseActivity) context;
@@ -134,7 +137,7 @@ public abstract class BaseDialog extends DialogFragment implements DialogMvpView
                 ViewGroup.LayoutParams.WRAP_CONTENT));
 
         // creating the fullscreen dialog
-        final Dialog dialog = new Dialog(getContext());
+        final Dialog dialog = new Dialog(Objects.requireNonNull(getContext()));
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(root);
         if (dialog.getWindow() != null) {
@@ -149,7 +152,7 @@ public abstract class BaseDialog extends DialogFragment implements DialogMvpView
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setUp(view);
     }

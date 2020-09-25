@@ -15,6 +15,7 @@ import com.pixel.app.utils.AppLogger;
 
 import javax.inject.Inject;
 
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class SyncService extends Service {
 
     private static final String TAG = "SyncService";

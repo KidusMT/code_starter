@@ -11,6 +11,7 @@ import io.reactivex.disposables.CompositeDisposable;
 public class SettingsPresenter<V extends SettingsMvpView> extends BasePresenter<V>
         implements SettingsMvpPresenter<V> {
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     private static final String TAG = SettingsPresenter.class.getSimpleName();
 
     @Inject
@@ -36,6 +37,7 @@ public class SettingsPresenter<V extends SettingsMvpView> extends BasePresenter<
         getMvpView().setAuthPrivilege(getDataManager().getAuthPrivilege());
     }
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     @Override
     public void setAuthPrivilege(boolean isAuthorized) {
         getDataManager().setAuthPrivilege(isAuthorized);

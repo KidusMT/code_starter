@@ -30,7 +30,6 @@ import com.pixel.app.R;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
@@ -42,6 +41,7 @@ import java.util.regex.Pattern;
  * Created by KidusMT.
  */
 
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public final class CommonUtils {
 
     private static final String TAG = "CommonUtils";
@@ -85,13 +85,7 @@ public final class CommonUtils {
         return bitmap;
     }
 
-    /**
-     * Create a Notification that is shown as a heads-up notification if possible.
-     * <p>
-     *
-     * @param message Message shown on the notification
-     * @param context Context needed to create Toast
-     */
+
 //    public static void makeStatusNotification(String message, Context context) {
 //
 //        // Make a channel if necessary
@@ -180,7 +174,7 @@ public final class CommonUtils {
 //            return context.getResources().getString(R.string.error_server_unreachable);
 //        } else {
 //
-//            return context.getResources().getString(R.string.error_something_wrong_happend);
+//            return context.getResources().getString(R.string.error_something_wrong_happened);
 //        }
 //    }
 
@@ -188,7 +182,7 @@ public final class CommonUtils {
         Pattern pattern;
         Matcher matcher;
         final String EMAIL_PATTERN =
-                "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                "^[_A-Za-z0-9-+]+(\\.[_A-Za-z0-9-]+)*@"
                         + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
         pattern = Pattern.compile(EMAIL_PATTERN);
         matcher = pattern.matcher(email);
@@ -256,6 +250,7 @@ public final class CommonUtils {
 
     }
 
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     public static byte[] fileToBytes(File file) {
         int size = (int) file.length();
         byte[] bytes = new byte[size];
@@ -263,8 +258,6 @@ public final class CommonUtils {
             BufferedInputStream buf = new BufferedInputStream(new FileInputStream(file));
             buf.read(bytes, 0, bytes.length);
             buf.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

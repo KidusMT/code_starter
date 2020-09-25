@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>BCMS_TIMEKEEPER_App</name>
-	<comment>Project BCMS_TIMEKEEPER_App created by Buildship.</comment>
+	<name>Code_Starter_APP</name>
+	<comment>Code_Starter_APP created by KidusMT.</comment>
 	<projects>
 	</projects>
 	<buildSpec>
 		<buildCommand>
-			<name>org.eclipse.buildship.core.gradleprojectbuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>org.eclipse.buildship.core.gradleprojectnature</nature>
 	</natures>
 </projectDescription>

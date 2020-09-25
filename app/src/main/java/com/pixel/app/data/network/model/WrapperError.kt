@@ -1,4 +1,6 @@
-package com.pixel.BCMS.data.network.model
+@file:Suppress("unused")
+
+package com.pixel.app.data.network.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

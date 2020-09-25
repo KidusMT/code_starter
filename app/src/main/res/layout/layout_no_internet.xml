@@ -11,12 +11,13 @@
         android:layout_height="200dp"
         android:layout_marginStart="@dimen/activity_vertical_margin"
         android:layout_marginEnd="@dimen/activity_vertical_margin"
-        android:src="@drawable/ic_no_internet_connection" />
+        android:src="@drawable/ic_no_internet_connection"
+        android:contentDescription="@string/layout_no_internet_content_description_logo" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Slow or no internet connection. \nPlease try again."
+        android:text="@string/layout_no_internet_message"
         android:textAlignment="center" />
 
     <Button
