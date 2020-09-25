@@ -59,7 +59,6 @@ unit_test:
   stage: test
   only:
     - master
-    - develop
 
   before_script:
     - export ANDROID_HOME=$PWD/.android
