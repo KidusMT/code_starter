@@ -1,5 +1,6 @@
 package com.pixel.app;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -24,8 +25,10 @@ import javax.inject.Inject;
 
 import static com.pixel.app.data.prefs.AppPreferencesHelper.PREF_KEY_CURRENT_LANGUAGE;
 
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class MvpApp extends Application {
 
+    @SuppressLint("StaticFieldLeak")
     public static Context mContext;
     @Inject
     DataManager mDataManager;
@@ -63,6 +66,7 @@ public class MvpApp extends Application {
         LocaleManager.setLocale(this);
     }
 
+    @SuppressLint("ObsoleteSdkInt")
     private void setupLanguagePreferences() {
 
         String default_language = getSharedPreferences(AppConstants.PREF_NAME, Context.MODE_PRIVATE).getString(PREF_KEY_CURRENT_LANGUAGE, "en");

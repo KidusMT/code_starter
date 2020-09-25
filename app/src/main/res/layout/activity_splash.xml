@@ -4,7 +4,6 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/splash_logo"
         android:padding="@dimen/activity_horizontal_margin"
         android:layout_width="200dp"
         android:background="@color/white_transparent"
@@ -12,7 +11,8 @@
         android:layout_height="100dp"
         android:layout_centerInParent="true"
         android:layout_marginBottom="@dimen/activity_horizontal_margin"
-        android:src="@drawable/ic_launcher" />
+        android:src="@drawable/ic_launcher"
+        android:contentDescription="@string/activity_splash_content_description_logo" />
 
     <TextView
         android:id="@+id/textView41"
@@ -30,7 +30,6 @@
         android:textColor="@color/white" />
 
     <ProgressBar
-        android:id="@+id/progressBar11"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

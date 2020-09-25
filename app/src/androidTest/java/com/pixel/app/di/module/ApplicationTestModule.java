@@ -25,6 +25,7 @@ import dagger.Module;
 import dagger.Provides;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
+@SuppressWarnings({"unused", "RedundantSuppression", "EmptyMethod", "SameReturnValue"})
 @Module
 public class ApplicationTestModule {
 

@@ -1,5 +1,7 @@
 package com.pixel.app.data.network;
 
+import androidx.annotation.NonNull;
+
 import java.io.IOException;
 
 import javax.inject.Inject;
@@ -13,18 +15,20 @@ import okhttp3.Response;
  * Created by KidusMT.
  */
 
+@SuppressWarnings({"unused", "RedundantSuppression"})
 @Singleton
 public class ApiInterceptor implements Interceptor {
 
     private static final String TAG = ApiInterceptor.class.getSimpleName();
 
-    private ApiHeader mApiHeader;
+    private final ApiHeader mApiHeader;
 
     @Inject
     public ApiInterceptor(final ApiHeader header) {
         mApiHeader = header;
     }
 
+    @NonNull
     @Override
     public Response intercept(Chain chain) throws IOException {
         final Request request = chain.request();

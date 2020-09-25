@@ -5,6 +5,10 @@ stages:
   - test
   - package
 
+variables:
+  ANDROID_COMPILE_SDK: "28"
+  ANDROID_BUILD_TOOLS: "28.0."
+  ANDROID_SDK_TOOLS:   "4333796"
 
 ####################################################################################################
 # BUILD
@@ -18,13 +22,6 @@ stages:
       - .android/
 
   before_script:
-    # Extract the SDK version that we're building against
-    - export ANDROID_COMPILE_SDK=`egrep '^[[:blank:]]+compileSdkVersion'  app/build.gradle | awk '{print $2}'`
-
-    # Explict output for logging purpose only
-    - echo $ANDROID_SDK_TOOLS
-    - echo $ANDROID_COMPILE_SDK
-
     # Fetch the specified SDK tools version to build with
     - wget --quiet --output-document=/tmp/sdk-tools-linux.zip https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_SDK_TOOLS}.zip
     - unzip /tmp/sdk-tools-linux.zip -d .android
@@ -40,8 +37,6 @@ stages:
 
 build_debug:
   <<: *build_template_def
-  only:
-    - develop
 
   script:
     - ./gradlew assembleDebug
@@ -59,9 +54,6 @@ build_release:
 
 unit_test:
   stage: test
-  only:
-    - master
-    - develop
 
   before_script:
     - export ANDROID_HOME=$PWD/.android

@@ -22,14 +22,15 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+@SuppressWarnings({"unused", "RedundantSuppression", "FieldCanBeLocal"})
 @Singleton
 public class AppApiHelper implements ApiHelper {
 
-    private static HttpLoggingInterceptor logger =
+    private static final HttpLoggingInterceptor logger =
             new HttpLoggingInterceptor()
                     .setLevel(HttpLoggingInterceptor.Level.BODY);
-    private Context mContext;
-    private ApiHeader mApiHeader;
+    private final Context mContext;
+    private final ApiHeader mApiHeader;
 
     @Inject
     public AppApiHelper(ApiHeader apiHeader, @ApplicationContext Context context) {

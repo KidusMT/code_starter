@@ -6,6 +6,7 @@ import com.pixel.app.data.db.model.DaoSession;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+@SuppressWarnings({"unused", "RedundantSuppression", "FieldCanBeLocal"})
 @Singleton
 public class AppDbHelper implements DbHelper {
 

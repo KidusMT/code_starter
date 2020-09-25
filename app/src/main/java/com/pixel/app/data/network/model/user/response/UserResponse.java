@@ -7,6 +7,7 @@ import com.pixel.app.data.network.model.user.Data;
 
 import java.util.List;
 
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class UserResponse {
 
     @SerializedName("success")

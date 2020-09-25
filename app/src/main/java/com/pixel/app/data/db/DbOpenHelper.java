@@ -25,7 +25,7 @@ public class DbOpenHelper extends DaoMaster.OpenHelper {
         super.onUpgrade(db, oldVersion, newVersion);
         AppLogger.d("DEBUG", "DB_OLD_VERSION : " + oldVersion + ", DB_NEW_VERSION : " + newVersion);
 //        switch (oldVersion) {
-//                db.execSQL("ALTER TABLE " + CheckInDao.TABLENAME + " ADD COLUMN "
+//                db.execSQL("ALTER TABLE " + CheckInDao.TABLE_NAME + " ADD COLUMN "
 //                 + CheckInDao.Properties.BeforeMorningOT + " INTEGER DEFAULT 'DEFAULT_VAL'");
 //        }
 //        MigrationHelper.migrate(new StandardDatabase((SQLiteDatabase) db.getRawDatabase()),

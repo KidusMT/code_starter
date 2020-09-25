@@ -99,6 +99,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, MenuAdapt
         super.onDestroy();
     }
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     @Override
     public void showFullScreenConnectionLostPage() {
         super.showFullScreenConnectionLostPage();
@@ -108,6 +109,7 @@ public class MainActivity extends BaseActivity implements MainMvpView, MenuAdapt
 
     }
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     @Override
     public void hideFullScreenConnectionLostPage() {
         super.hideFullScreenConnectionLostPage();
@@ -117,15 +119,18 @@ public class MainActivity extends BaseActivity implements MainMvpView, MenuAdapt
     }
 
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     @OnClick(R.id.btn_retry)
     public void onClickRetry(View view) {
         mPresenter.loadApplications();
     }
 
+    @SuppressWarnings({"unused", "RedundantSuppression", "EmptyMethod"})
     @Override
     public void onFragmentAttached() {
     }
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     @Override
     public void onFragmentDetached(String tag) {
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -195,16 +200,13 @@ public class MainActivity extends BaseActivity implements MainMvpView, MenuAdapt
     public void promptLogout() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.are_you_sure_you_want_to_logout)
-                .setPositiveButton(getString(R.string.logout_dialog), (dialog, id) -> {
-                    mPresenter.onLogoutClicked();
-                })
-                .setNegativeButton(getString(R.string.cancel), (dialog, id) -> {
-                    dialog.dismiss();
-                });
+                .setPositiveButton(getString(R.string.logout_dialog), (dialog, id) -> mPresenter.onLogoutClicked())
+                .setNegativeButton(getString(R.string.cancel), (dialog, id) -> dialog.dismiss());
         AlertDialog alert = builder.create();
         alert.show();
     }
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     @Override
     public void onItemClicked(/*Data application*/) {
 //        openApplicationScreen(application.getId());

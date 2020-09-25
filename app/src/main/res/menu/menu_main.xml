@@ -5,13 +5,13 @@
     <item
         android:id="@+id/menu_settings"
         android:icon="@drawable/ic_settings_white"
-        android:title="Settings"
+        android:title="@string/menu_main_settings"
         app:showAsAction="collapseActionView" />
 
     <item
         android:id="@+id/menu_logout"
         android:icon="@android:drawable/ic_menu_preferences"
-        android:title="@string/logout"
+        android:title="@string/menu_main_logout"
         app:showAsAction="collapseActionView" />
 
 </menu>

@@ -22,6 +22,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class BaseUrlDialog extends BaseDialog implements BaseUrlMvpView {
 
 
@@ -68,7 +69,7 @@ public class BaseUrlDialog extends BaseDialog implements BaseUrlMvpView {
     }
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         communicator = (BaseUrlDialogCommunicator) getBaseActivity();
     }

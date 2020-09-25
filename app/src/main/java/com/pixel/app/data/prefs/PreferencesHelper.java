@@ -2,6 +2,7 @@ package com.pixel.app.data.prefs;
 
 import com.pixel.app.data.DataManager;
 
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public interface PreferencesHelper {
 
     int getCurrentUserLoggedInMode();

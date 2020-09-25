@@ -1,5 +1,6 @@
 package com.pixel.app.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -31,6 +32,7 @@ public class LocaleManager {
         sharedPreferences.edit().putString(PREF_KEY_CURRENT_LANGUAGE, language).apply();// a
     }
 
+    @SuppressLint("ObsoleteSdkInt")
     private static void updateResources(Context context, String language) {
         Locale locale = new Locale(language);
         Locale.setDefault(locale);

@@ -1,5 +1,6 @@
 package com.pixel.app.ui.settings;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -17,6 +18,7 @@ import com.pixel.app.utils.AppConstants;
 import com.pixel.app.utils.AppLogger;
 
 import java.util.Locale;
+import java.util.Objects;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -50,7 +52,7 @@ public class LanguageListActivity extends BaseActivity implements View.OnClickLi
 
         ButterKnife.bind(this);
 
-        if (currentLanguage.equals("en")) {
+        if (Objects.requireNonNull(currentLanguage).equals("en")) {
             mRadioButton_english.setChecked(true);
             mRadioButton_amharic.setChecked(false);
         } else if (currentLanguage.equals("am")) {
@@ -59,6 +61,7 @@ public class LanguageListActivity extends BaseActivity implements View.OnClickLi
         }
     }
 
+    @SuppressLint("ObsoleteSdkInt")
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -91,15 +94,15 @@ public class LanguageListActivity extends BaseActivity implements View.OnClickLi
             case R.id.check_amharic:
             case R.id.check_amharic_container:
 
-                Locale localea = new Locale("am");
-                Locale.setDefault(localea);
-                Configuration configa = new Configuration(getResources().getConfiguration());
+                Locale localeA = new Locale("am");
+                Locale.setDefault(localeA);
+                Configuration configA = new Configuration(getResources().getConfiguration());
                 if (Build.VERSION.SDK_INT >= 17) {
-                    configa.setLocale(localea);
+                    configA.setLocale(localeA);
                 } else {
-                    configa.locale = localea;
+                    configA.locale = localeA;
                 }
-                getResources().updateConfiguration(configa, getResources().getDisplayMetrics());
+                getResources().updateConfiguration(configA, getResources().getDisplayMetrics());
 
                 sharedPreferences.edit().putString(PREF_KEY_CURRENT_LANGUAGE, "am").apply();
                 mRadioButton_english.setChecked(false);
@@ -110,7 +113,7 @@ public class LanguageListActivity extends BaseActivity implements View.OnClickLi
                 }
                 Intent intent1 = new Intent(this, LanguageListActivity.class);
                 startActivity(intent1);
-                onConfigurationChanged(configa);
+                onConfigurationChanged(configA);
                 finish();
 
                 break;
@@ -124,11 +127,13 @@ public class LanguageListActivity extends BaseActivity implements View.OnClickLi
         super.onConfigurationChanged(newConfig);
     }
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     @Override
     protected void setUp() {
 
     }
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     @OnClick(R.id.back_button)
     public void onBackClick(View v) {
         startActivity(new Intent(this, SettingsActivity.class));

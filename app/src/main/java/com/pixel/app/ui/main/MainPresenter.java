@@ -10,6 +10,7 @@ import io.reactivex.disposables.CompositeDisposable;
 
 public class MainPresenter<V extends MainMvpView> extends BasePresenter<V> implements MainMvpPresenter<V> {
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     private static final String TAG = MainPresenter.class.getSimpleName();
 
     @Inject
@@ -19,16 +20,19 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V> imple
         super(dataManager, schedulerProvider, compositeDisposable);
     }
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     @Override
     public void onAttach(V mvpView) {
         super.onAttach(mvpView);
     }
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     @Override
     public void onViewInitialized() {
 
     }
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     @Override
     public void loadApplications() {
 //        getMvpView().showLoading();
@@ -62,11 +66,13 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V> imple
 //                }));
     }
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     @Override
     public void onSettingsClicked() {
         getMvpView().openSettings();
     }
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     @Override
     public void onLogoutClicked() {
         getDataManager().setUserAsLoggedOut();

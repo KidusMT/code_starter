@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
@@ -14,6 +15,7 @@ import com.pixel.app.utils.CommonUtils;
 
 import butterknife.Unbinder;
 
+@SuppressWarnings({"unused", "RedundantSuppression", "EmptyMethod"})
 public abstract class BaseFragment extends Fragment implements MvpView {
 
     private BaseActivity mActivity;
@@ -27,13 +29,13 @@ public abstract class BaseFragment extends Fragment implements MvpView {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setUp(view);
     }
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         if (context instanceof BaseActivity) {
             BaseActivity activity = (BaseActivity) context;

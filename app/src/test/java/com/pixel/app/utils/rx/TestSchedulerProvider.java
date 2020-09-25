@@ -4,6 +4,7 @@ import io.reactivex.Scheduler;
 import io.reactivex.schedulers.TestScheduler;
 
 
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class TestSchedulerProvider implements SchedulerProvider {
 
     private final TestScheduler mTestScheduler;

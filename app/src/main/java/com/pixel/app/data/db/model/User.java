@@ -5,6 +5,8 @@ import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Property;
 
+
+@SuppressWarnings({"unused", "RedundantSuppression"})
 @Entity(nameInDb = "user")
 public class User {
 

@@ -43,18 +43,21 @@ public class ApplicationModule {
         return mApplication;
     }
 
+    @SuppressWarnings("SameReturnValue")
     @Provides
     @DatabaseInfo
     String provideDatabaseName() {
         return AppConstants.DB_NAME;
     }
 
+    @SuppressWarnings("SameReturnValue")
     @Provides
     @ApiInfo
     String provideApiKey() {
         return null;//BuildConfig.API_KEY;
     }
 
+    @SuppressWarnings("SameReturnValue")
     @Provides
     @PreferenceInfo
     String providePreferenceName() {

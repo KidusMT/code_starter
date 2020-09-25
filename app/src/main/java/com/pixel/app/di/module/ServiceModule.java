@@ -4,6 +4,7 @@ import android.app.Service;
 
 import dagger.Module;
 
+@SuppressWarnings({"unused", "RedundantSuppression", "FieldCanBeLocal"})
 @Module
 public class ServiceModule {
 

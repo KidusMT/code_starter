@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <set xmlns:android="http://schemas.android.com/apk/res/android"
-    android:interpolator="@android:anim/linear_interpolator">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:interpolator="@android:anim/linear_interpolator"
+    tools:keep="@anim/fade_in">
     <alpha
         android:duration="500"
         android:fromAlpha="0.1"

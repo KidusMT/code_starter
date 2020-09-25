@@ -11,6 +11,7 @@ import com.pixel.app.utils.AppConstants;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+@SuppressWarnings({"unused", "RedundantSuppression"})
 @Singleton
 public class AppPreferencesHelper implements PreferencesHelper {
 

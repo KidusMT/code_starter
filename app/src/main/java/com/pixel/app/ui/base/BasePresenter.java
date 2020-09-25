@@ -12,6 +12,8 @@ import io.reactivex.disposables.CompositeDisposable;
  * onAttach() and onDetach(). It also handles keeping a reference to the mvpView that
  * can be accessed from the children classes by calling getMvpView().
  */
+
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
 
     private static final String TAG = "BasePresenter";
@@ -43,7 +45,7 @@ public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
     }
 
     public boolean isViewAttached() {
-        return mMvpView != null;
+        return mMvpView == null;
     }
 
     public V getMvpView() {
@@ -51,7 +53,7 @@ public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
     }
 
     public void checkViewAttached() {
-        if (!isViewAttached()) throw new MvpViewNotAttachedException();
+        if (isViewAttached()) throw new MvpViewNotAttachedException();
     }
 
     public DataManager getDataManager() {

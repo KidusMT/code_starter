@@ -1,5 +1,6 @@
 package com.pixel.app.utils;
 
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public final class AppConstants {
 
     public static final String STATUS_CODE_SUCCESS = "success";

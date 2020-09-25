@@ -24,6 +24,7 @@ public class NoInternetFragment extends BaseFragment {
     @BindView(R.id.image)
     ImageView image;
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     public static Intent getStartIntent(Context context) {
         return new Intent(context, NoInternetFragment.class);
     }
@@ -51,22 +52,26 @@ public class NoInternetFragment extends BaseFragment {
         hideLoading();
     }
 
+    @SuppressWarnings("EmptyMethod")
     @Override
     public void onResume() {
         super.onResume();
 
     }
 
+    @SuppressWarnings("EmptyMethod")
     @OnClick(R.id.btn_retry)
     void onCheckInTimeClick() {
 
     }
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     @Override
     public void showFullScreenConnectionLostPage() {
 
     }
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     @Override
     public void hideFullScreenConnectionLostPage() {
 

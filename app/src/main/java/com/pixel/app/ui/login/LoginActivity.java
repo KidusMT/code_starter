@@ -5,13 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Spinner;
 
 import com.pixel.app.R;
 import com.pixel.app.ui.base.BaseActivity;
 import com.pixel.app.ui.main.MainActivity;
-
-import java.util.ArrayList;
 
 import javax.inject.Inject;
 
@@ -24,17 +21,11 @@ public class LoginActivity extends BaseActivity implements LoginMvpView {
     @Inject
     LoginMvpPresenter<LoginMvpView> mPresenter;
 
-    @BindView(R.id.et_username)
+    @BindView(R.id.et_email)
     EditText etUserName;
 
     @BindView(R.id.et_password)
     EditText etPassword;
-
-    @BindView(R.id.login_site)
-    Spinner spinnerSite;
-    int check = 0;
-    int selectedSite = -1;// default - not selected
-    ArrayList<String> siteOptions = new ArrayList<>();
 
     public static Intent getStartIntent(Context context) {
         return new Intent(context, LoginActivity.class);
@@ -54,7 +45,7 @@ public class LoginActivity extends BaseActivity implements LoginMvpView {
         setUp();
     }
 
-    @OnClick(R.id.btn_signup)
+    @OnClick(R.id.btn_signUp)
     void onSignUpClicked() {
         openSignUpScreen();
     }
@@ -64,6 +55,7 @@ public class LoginActivity extends BaseActivity implements LoginMvpView {
         hideKeyboard();
     }
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     @OnClick(R.id.btn_login)
     void onServerLoginClick(View v) {
         mPresenter.onServerLoginClick(etUserName.getText().toString(), etPassword.getText().toString());

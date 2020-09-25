@@ -2,6 +2,7 @@ package com.pixel.app.utils;
 
 import java.io.File;
 
+@SuppressWarnings({"unused", "RedundantSuppression", "EmptyMethod"})
 public class SaveFileUtils {
 
     public static void savePrompt(File file) {

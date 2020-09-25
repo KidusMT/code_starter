@@ -2,6 +2,7 @@ package com.pixel.app.data.network;
 
 import javax.inject.Singleton;
 
+@SuppressWarnings({"unused", "RedundantSuppression"})
 @Singleton
 public class ApiHeader {
 

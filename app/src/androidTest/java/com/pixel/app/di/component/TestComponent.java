@@ -6,6 +6,8 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 
+
+@SuppressWarnings({"unused", "RedundantSuppression"})
 @Singleton
 @Component(modules = ApplicationTestModule.class)
 public interface TestComponent extends ApplicationComponent {

@@ -9,6 +9,8 @@ import androidx.core.content.ContextCompat;
 
 import com.pixel.app.R;
 
+
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public final class ViewUtils {
 
     private ViewUtils() {

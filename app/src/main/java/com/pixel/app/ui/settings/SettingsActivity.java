@@ -76,31 +76,36 @@ public class SettingsActivity extends BaseActivity implements SettingsMvpView, B
         mPresenter.getCurrentBaseUrl();
     }
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     @Override
     public void setCurrentLanguage(String language) {
         if (language.equals("en")) {
-            mCurrentLanguage.setText("English");
+            mCurrentLanguage.setText(R.string.settings_activity_english);
         } else if (language.equals("am")) {
-            mCurrentLanguage.setText("Amharic");
+            mCurrentLanguage.setText(R.string.settings_activity_amharic);
         }
     }
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     @Override
     public void setCurrentBaseUrl(String baseUrl) {
 //        if (!TextUtils.isEmpty(baseUrl))
 //            etBaseUrl.setText(baseUrl);
     }
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     @Override
     public void setAuthPrivilege(boolean isAuthorized) {
 //        mAuthSwitch.setChecked(isAuthorized);
     }
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     @Override
     public void openProjectSetup() {
 //        startActivity(SetupActivity.getStartIntent(this, true));
     }
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     @OnClick(R.id.layout_current_language)
     public void onClickCurrentLanguage(View view) {
         startActivity(new Intent(this, LanguageListActivity.class));
@@ -155,6 +160,7 @@ public class SettingsActivity extends BaseActivity implements SettingsMvpView, B
         }
     }
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     @OnClick(R.id.back_button)
     public void OnClickBack(View view) {
         onBackPressed();
@@ -165,6 +171,7 @@ public class SettingsActivity extends BaseActivity implements SettingsMvpView, B
         finish();
     }
 
+    @SuppressWarnings({"unused", "RedundantSuppression"})
     @OnClick({R.id.switch_storage_wrapper, R.id.switch_camera_wrapper, R.id.switch_location_wrapper, R.id.switch_microphone_wrapper})
     public void goToPermissionsSetting(View v) {
         Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS,

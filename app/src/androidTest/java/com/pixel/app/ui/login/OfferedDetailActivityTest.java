@@ -1,8 +1,8 @@
 package com.pixel.app.ui.login;
 
-import android.support.test.InstrumentationRegistry;
-import android.support.test.espresso.intent.rule.IntentsTestRule;
-import android.support.test.runner.AndroidJUnit4;
+import androidx.test.core.app.ApplicationProvider;
+import androidx.test.espresso.intent.rule.IntentsTestRule;
+import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner;
 
 import com.pixel.app.R;
 import com.pixel.app.TestComponentRule;
@@ -14,24 +14,26 @@ import org.junit.rules.RuleChain;
 import org.junit.rules.TestRule;
 import org.junit.runner.RunWith;
 
-import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
-import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
-@RunWith(AndroidJUnit4.class)
+@RunWith(AndroidJUnit4ClassRunner.class)
 public class OfferedDetailActivityTest {
 
     public final TestComponentRule component =
-            new TestComponentRule(InstrumentationRegistry.getTargetContext());
+            new TestComponentRule(ApplicationProvider.getApplicationContext());
 
+    @SuppressWarnings("deprecation")
     public final IntentsTestRule<LoginActivity> main =
             new IntentsTestRule<>(LoginActivity.class, false, false);
 
     @Rule
     public TestRule chain = RuleChain.outerRule(component).around(main);
 
+    @SuppressWarnings("EmptyMethod")
     @Before
     public void setup() {
 
@@ -47,16 +49,7 @@ public class OfferedDetailActivityTest {
         onView(withId(R.id.et_password))
                 .check(matches(isDisplayed()));
 
-        onView(withId(R.id.btn_server_login))
-                .check(matches(isDisplayed()));
-
         onView(withText(R.string.login))
-                .check(matches(isDisplayed()));
-
-        onView(withId(R.id.ib_google_login))
-                .check(matches(isDisplayed()));
-
-        onView(withId(R.id.ib_fb_login))
                 .check(matches(isDisplayed()));
     }
 }

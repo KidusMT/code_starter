@@ -4,6 +4,7 @@ package com.pixel.app.data.network.model.user;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class User {
 
     @SerializedName("success")
