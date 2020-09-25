@@ -6,7 +6,6 @@ apply from: '../config/quality/quality.gradle'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
         applicationId "com.pixel.app"
         minSdkVersion rootProject.ext.minSdkVersion

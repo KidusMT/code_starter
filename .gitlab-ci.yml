@@ -37,8 +37,6 @@ variables:
 
 build_debug:
   <<: *build_template_def
-  only:
-    - dev_os/CleanUp
 
   script:
     - ./gradlew assembleDebug

@@ -59,8 +59,7 @@ public class LoginPresenterTest {
 
         doReturn(Observable.just(loginResponse))
                 .when(mMockDataManager)
-                .doServerLoginApiCall(new LoginRequest
-                        .ServerLoginRequest(email, password));
+                .login(new LoginRequest(email, password));
 
         mLoginPresenter.onServerLoginClick(email, password);
 
@@ -68,7 +67,7 @@ public class LoginPresenterTest {
 
         verify(mMockLoginMvpView).showLoading();
         verify(mMockLoginMvpView).hideLoading();
-        verify(mMockLoginMvpView).openMainActivity();
+        verify(mMockLoginMvpView).openMainScreen();
     }
 
     @SuppressWarnings({"EmptyMethod", "RedundantThrows"})
