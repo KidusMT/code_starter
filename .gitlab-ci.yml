@@ -1,6 +1,7 @@
 image: openjdk:8-jdk
 
 stages:
+  - lint
   - build
   - test
   - package
@@ -9,6 +10,28 @@ variables:
   ANDROID_COMPILE_SDK: "28"
   ANDROID_BUILD_TOOLS: "28.0."
   ANDROID_SDK_TOOLS:   "4333796"
+
+####################################################################################################
+# Lint
+#
+
+lintDebug:
+  stage: lint
+  before_script:
+    # Fetch the specified SDK tools version to build with
+    - wget --quiet --output-document=/tmp/sdk-tools-linux.zip https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_SDK_TOOLS}.zip
+    - unzip /tmp/sdk-tools-linux.zip -d .android
+
+    # Set up environment variables
+    - export ANDROID_HOME=$PWD/.android
+    - export PATH=$PATH:$PWD/.android/platform-tools/
+
+    # Install platform tools and Android SDK for the compile target
+    - echo y | .android/tools/bin/sdkmanager "platforms;android-${ANDROID_COMPILE_SDK}"
+
+    - chmod +x ./gradlew
+  script:
+    - ./gradlew -Pci --console=plain :app:lintDebug -PbuildDir=lint
 
 ####################################################################################################
 # BUILD
@@ -34,12 +57,6 @@ variables:
     - echo y | .android/tools/bin/sdkmanager "platforms;android-${ANDROID_COMPILE_SDK}"
 
     - chmod +x ./gradlew
-
-
-lintDebug:
-  stage: build
-  script:
-    - ./gradlew -Pci --console=plain :app:lintDebug -PbuildDir=lint
 
 
 build_debug:
