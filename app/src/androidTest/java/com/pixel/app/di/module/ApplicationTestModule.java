@@ -9,6 +9,7 @@ import com.pixel.app.data.AppDataManager;
 import com.pixel.app.data.DataManager;
 import com.pixel.app.data.db.AppDbHelper;
 import com.pixel.app.data.db.DbHelper;
+import com.pixel.app.data.network.ApiHeader;
 import com.pixel.app.data.network.ApiHelper;
 import com.pixel.app.data.network.AppApiHelper;
 import com.pixel.app.data.prefs.AppPreferencesHelper;
@@ -23,7 +24,6 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 @SuppressWarnings({"unused", "RedundantSuppression", "EmptyMethod", "SameReturnValue"})
 @Module
@@ -90,22 +90,20 @@ public class ApplicationTestModule {
         return appApiHelper;
     }
 
-//    @Provides
-//    @Singleton
-//    ApiHeader.ProtectedApiHeader provideProtectedApiHeader(@ApiInfo String apiKey,
-//                                                           PreferencesHelper preferencesHelper) {
-//        return new ApiHeader.ProtectedApiHeader(
-//                apiKey,
-//                preferencesHelper.getCurrentUserId(),
-//                preferencesHelper.getAccessToken());
-//    }
-
     @Provides
     @Singleton
-    CalligraphyConfig provideCalligraphyDefaultConfig() {
-        return new CalligraphyConfig.Builder()
-                .setDefaultFontPath("seed/source-sans-pro/SourceSansPro-Regular.ttf")
-                .setFontAttrId(R.attr.fontPath)
-                .build();
+    ApiHeader provideProtectedApiHeader(@ApiInfo String apiKey,
+                                                           PreferencesHelper preferencesHelper) {
+        return new ApiHeader(
+                preferencesHelper.getAccessToken());
     }
+
+//    @Provides
+//    @Singleton
+//    CalligraphyConfig provideCalligraphyDefaultConfig() {
+//        return new CalligraphyConfig.Builder()
+//                .setDefaultFontPath("seed/source-sans-pro/SourceSansPro-Regular.ttf")
+//                .setFontAttrId(R.attr.fontPath)
+//                .build();
+//    }
 }
