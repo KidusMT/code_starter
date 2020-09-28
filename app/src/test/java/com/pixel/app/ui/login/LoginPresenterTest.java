@@ -20,7 +20,7 @@ import io.reactivex.schedulers.TestScheduler;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
 
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(MockitoJUnitRunner.Silent.class)
 public class LoginPresenterTest {
 
     @Mock

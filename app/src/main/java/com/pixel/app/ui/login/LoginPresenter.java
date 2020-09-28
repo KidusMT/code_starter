@@ -56,18 +56,18 @@ public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V>
         //
         getMvpView().showLoading();
 
-        getCompositeDisposable().add(getDataManager()
-                .login(new LoginRequest(email, password))
-                .subscribeOn(getSchedulerProvider().io())
-                .observeOn(getSchedulerProvider().ui())
-                .subscribe(response -> {
-
-                    if (isViewAttached()) {
-                        return;
-                    }
+//        getCompositeDisposable().add(getDataManager()
+//                .login(new LoginRequest(email, password))
+//                .subscribeOn(getSchedulerProvider().io())
+//                .observeOn(getSchedulerProvider().ui())
+//                .subscribe(response -> {
+//
+//                    if (isViewAttached()) {
+//                        return;
+//                    }
 
                     getMvpView().hideLoading();
-                    if (response.getSuccess()) {
+//                    if (response.getSuccess()) {
 //                        String decoded = AppUtils.decodeToken(response.getJwt());
 //                        JSONObject decObj = new JSONObject(decoded);
 //                        Long applicantId = decObj.getLong("id");
@@ -92,19 +92,19 @@ public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V>
 
                         getMvpView().openMainScreen();
 //                    } else if (response.getErrors().get(0).equalsIgnoreCase("Invalid username or password !")){
-                    } else if (response.getErrors() != null && response.getErrors().size() > 0) {
-                        // if single line then should display only the first but if multiple
-                        // then it should display multiple line snackBar with custom snack bar
-                        getMvpView().onError(response.getErrors().get(0));
-                    }
-                }, throwable -> {
-                    if (isViewAttached()) {
-                        return;
-                    }
-                    // handle the login error here
-                    getMvpView().hideLoading();
-                    ErrorUtils.handleApiError(throwable, getMvpView());
-                }));
+//                    } else if (response.getErrors() != null && response.getErrors().size() > 0) {
+//                        // if single line then should display only the first but if multiple
+//                        // then it should display multiple line snackBar with custom snack bar
+//                        getMvpView().onError(response.getErrors().get(0));
+//                    }
+//                }, throwable -> {
+//                    if (isViewAttached()) {
+//                        return;
+//                    }
+//                    // handle the login error here
+//                    getMvpView().hideLoading();
+//                    ErrorUtils.handleApiError(throwable, getMvpView());
+//                }));
     }
 
     @Override

@@ -5,6 +5,7 @@ import com.pixel.app.di.module.ApplicationTestModule;
 import javax.inject.Singleton;
 
 import dagger.Component;
+import dagger.Provides;
 
 
 @SuppressWarnings({"unused", "RedundantSuppression"})
