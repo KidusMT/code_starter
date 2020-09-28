@@ -111,8 +111,19 @@ package_develop:
   <<: *package_template_def
   stage: package
   environment: Development
-  only:
-    - develop
+  before_script:
+    # Fetch the specified SDK tools version to build with
+    - wget --quiet --output-document=/tmp/sdk-tools-linux.zip https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_SDK_TOOLS}.zip
+    - unzip /tmp/sdk-tools-linux.zip -d .android
+
+    # Set up environment variables
+    - export ANDROID_HOME=$PWD/.android
+    - export PATH=$PATH:$PWD/.android/platform-tools/
+
+    # Install platform tools and Android SDK for the compile target
+    - echo y | .android/tools/bin/sdkmanager "platforms;android-${ANDROID_COMPILE_SDK}"
+
+    - chmod +x ./gradlew
   script:
     - mv app/build/outputs/apk/app-debug.apk ./deliverables/NameOfTheApp-v$VERSION_NAME-$VERSION_CODE-debug.apk
   artifacts:
