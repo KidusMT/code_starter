@@ -35,6 +35,13 @@ variables:
 
     - chmod +x ./gradlew
 
+
+lintDebug:
+  stage: build
+  script:
+    - ./gradlew -Pci --console=plain :app:lintDebug -PbuildDir=lint
+
+
 build_debug:
   <<: *build_template_def
 
